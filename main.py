@@ -28,7 +28,9 @@ async def gpt(interaction: Interaction, arg: str = SlashOption(description="Prom
         stop=["[STOP]"],
     )
 
-    await interaction.response.send_message(response.choices[0].message.content)
+    await interaction.response.send_message(
+        f"_prompt:_\n```{arg}```\n_response:_\n```{response.choices[0].message.content}```"
+    )
 
 
 if __name__ == "__main__":
